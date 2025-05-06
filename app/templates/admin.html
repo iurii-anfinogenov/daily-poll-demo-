@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Создать опрос</h2>
+  <form method="post" action="/admin">
+    <div>
+      <label>Вопрос:<br>
+        <input type="text" name="text" required style="width: 100%;">
+      </label>
+    </div>
+    <div>
+      <label>Варианты (через запятую):<br>
+        <input type="text" name="options" placeholder="опция1, опция2" style="width: 100%;">
+      </label>
+    </div>
+    <button type="submit">Создать</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+  {% if no_poll %}
+    <p>Пока нет активного опроса. <a href="/admin">Создать опрос</a></p>
+  {% else %}
+    <h2>{{ question.text }}</h2>
+    <form method="post" action="/vote">
+      {% for cid, text, cnt in results %}
+        <div>
+          <label>
+            <input type="radio" name="choice_id" value="{{ cid }}" required>
+            {{ text }} ({{ cnt }} голосов)
+          </label>
+        </div>
+      {% endfor %}
+      <button type="submit">Голосовать</button>
+    </form>
+    <p><a href="/admin">Создать новый опрос</a></p>
+  {% endif %}
+{% endblock %}
